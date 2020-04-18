@@ -4,11 +4,12 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import { ApolloClient, InMemoryCache, HttpLink, NormalizedCacheObject } from '@apollo/client'
 import fetch from 'isomorphic-unfetch'
 import config from '../../config'
+import { NextPage } from 'next'
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null
 
-export function withApollo (PageComponent: any, { ssr = true } = {}) {
-  const WithApollo = ({ apolloClient, apolloState, ...pageProps }: any) => {
+export function withApollo (PageComponent: NextPage, { ssr = true } = {}) {
+  const WithApollo = ({ apolloClient, apolloState, ...pageProps }: { apolloClient: any, apolloState: NormalizedCacheObject }) => {
     const client = useMemo(
       () => apolloClient || initApolloClient(apolloState),
       []
@@ -71,7 +72,7 @@ export function withApollo (PageComponent: any, { ssr = true } = {}) {
   return WithApollo
 }
 
-function initApolloClient (initialState?: any) {
+function initApolloClient (initialState?: NormalizedCacheObject) {
   if (typeof window === 'undefined') {
     return createApolloClient(initialState)
   }
@@ -83,7 +84,7 @@ function initApolloClient (initialState?: any) {
   return apolloClient
 }
 
-function createApolloClient (initialState = {}) {
+function createApolloClient (initialState: NormalizedCacheObject = {}) {
   const isBrowser = typeof window !== 'undefined'
   return new ApolloClient({
     connectToDevTools: isBrowser,
