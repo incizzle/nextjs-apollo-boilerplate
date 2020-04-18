@@ -1,0 +1,45 @@
+{
+  "name": "nextjs-apollo-boilerplate",
+  "version": "1.0.0",
+  "description": "nextjs-apollo-boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "generate": "graphql-codegen --config codegen.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incizzle/nextjs-apollo-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/incizzle/nextjs-apollo-boilerplate/issues"
+  },
+  "homepage": "https://github.com/incizzle/nextjs-apollo-boilerplate#readme",
+  "dependencies": {
+    "@apollo/client": "^3.0.0-beta.43",
+    "@apollo/react-hooks": "^3.1.5",
+    "@apollo/react-ssr": "^3.1.5",
+    "apollo-client": "^2.6.8",
+    "graphql": "^15.0.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.3.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.13.2",
+    "@graphql-codegen/typescript": "^1.13.2",
+    "@graphql-codegen/typescript-operations": "^1.13.2",
+    "@graphql-codegen/typescript-react-apollo": "^1.13.2",
+    "@types/node": "^13.13.0",
+    "@types/react": "^16.9.34",
+    "@types/styled-components": "^5.1.0",
+    "typescript": "^3.8.3"
+  }
+}
