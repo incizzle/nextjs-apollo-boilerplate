@@ -22,8 +22,7 @@ export function withApollo (PageComponent: NextPage, { ssr = true } = {}) {
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const displayName =
-      PageComponent.displayName || PageComponent.name || 'Component'
+    const displayName = PageComponent.displayName || PageComponent.name || 'Component'
 
     if (displayName === 'App') {
       console.warn('This withApollo HOC only works with PageComponents.')
